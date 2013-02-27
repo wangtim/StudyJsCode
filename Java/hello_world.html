@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>URI Encoding</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <script type="text/javascript">
+        //<![CDATA{
+
+        function encodeStrings()
+        {
+            var sOne = encodeURIComponent("http://burningbird.net/index.php?pagename=$1&Spage=$2");
+            var sTwo = encodeURI("http://someapplication.com/?catsname=zoe&URL=");
+            var sOutput ="<p>Link is "+ sTwo + sOne +"</p>";
+            document.write(sOutput);
+
+            var sOneDecode = decodeURI(sTwo);//decodeURI用来对encodeURI编码过的字符串进行解码
+            var sTwoDecode = decodeURIComponent(sOne);//ecodeURIComponent用来对encodeURIComponent编码过的字符串进行解码
+
+            var sOutputDecoded = "<p> "+ sOneDecode +" </p><p>" + sTwoDecode+ "</p>";
+            document.write(sOutputDecoded);
+
+            var strOutput2 = String(document);
+            document.writeln(strOutput2);
+        }
+
+        //]]>
+    </script>
+</head>
+<body onload="encodeStrings()">
+    <p>通过Javascript的encodeURI和encodeURIComponent方法对两个字符串进行URI编码</p>
+</body>
+</html>
